@@ -33,7 +33,7 @@ git remotre add origin https://github.com/davidHurtrel/nom_du_depot_distant.git
 ```
 - ajouter les fichiers
 ```
-git add .
+git add . (ou *)
 ```
 - donner un nom au commit :
 ```
