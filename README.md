@@ -78,3 +78,10 @@ symfony server:ca:install
 ```
 composer require symfony/apache-pack
 ```
+
+## CONTROLLER
+
+- créer un controller (et le template associé) :
+```
+symfony console make:controller nom_du_controller
+```
