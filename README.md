@@ -48,9 +48,22 @@ git push origin main (ou master pour les plus anciennes versions de Git)
 git log
 ```
 
-## RÉCUPÉRER UN PROJET EXISTANT
+## RÉCUPÉRER UN PROJET
 
-- télécharger le zip faire un pull
+- télécharger le zip ou faire un pull
+- recréer le fichier .env.local à la racine du projet (avec ses propres informations), les informations importantes sont APP_ENV, APP_SECRET et MAILER_DSN (éventuellement MAILER_URL)
+- mettre à jour le projet (installer les dépendances, générer le cache, ...) :
+```
+composer install
+```
+- créer la base de données (si cela n'est pas déjà fait) :
+```
+symfony console doctrine:database:create
+```
+- mettre à jour la base de données (créer, modifier, supprimer les tables) :
+```
+symfony console doctrine:migrations:migrate
+```
 
 ## SYMFONY SERVER
 
