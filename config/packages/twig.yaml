@@ -1,5 +1,12 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+    globals:
+        contact_company: 'Table Top Games'
+        contact_address: '12345 rue du Village'
+        contact_zip: '12345'
+        contact_city: 'Ville'
+        contact_phone: '01 23 45 67 89'
+        contact_email: 'contact@table-top-games.com'
 
 when@test:
     twig:

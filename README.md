@@ -98,3 +98,18 @@ composer require symfony/apache-pack
 ```
 symfony console make:controller nom_du_controller
 ```
+
+## VARIABLES GLOBALES
+
+- variable utilisable dans tout fichier Twig
+- dans le fichier config/packages/twig.yaml :
+```YAML
+twig:
+    ...
+    globals:
+        nom_de_la_variable: 'valeur_de_la_variable'
+```
+- utilisation dans un fichier Twig :
+```
+{{ nom_de_la_variable }}
+```
