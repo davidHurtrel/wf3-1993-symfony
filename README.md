@@ -113,3 +113,26 @@ twig:
 ```
 {{ nom_de_la_variable }}
 ```
+
+## BASE DE DONNÉES
+
+- env.local :
+```
+DATABASE_URL="mysql://db_user:db_pass@db_host/db_name?serverVersion=5.7&charset=utf8"
+```
+- créer la base de données :
+```
+symfony console doctrine:database:create
+```
+- supprimer la base de données :
+```
+symfony console doctrine:database:drop --force
+```
+- créer une entité (table) ou ajouter des champs à une entité :
+```
+symfony console make:entity nom_de_l_entite
+```
+- créer l'entité User :
+```
+symfony console make:user
+```
