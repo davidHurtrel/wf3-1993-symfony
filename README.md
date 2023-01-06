@@ -136,3 +136,12 @@ symfony console make:entity nom_de_l_entite
 ```
 symfony console make:user
 ```
+- migration :
+```
+symfony console make:migration
+symfony console doctrine:migrations:migrate
+```
+- exécuter une requête sql :
+```
+symfony console doctrine:query:sql "la_requete_a_executer"
+```
