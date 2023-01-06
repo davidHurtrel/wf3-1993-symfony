@@ -67,7 +67,7 @@ symfony console doctrine:migrations:migrate
 
 ## SYMFONY SERVER
 
-- démarrer le serveur Symfony :
+- démarrer le serveur Symfony (Ctrl + C pour l'arrêter) :
 ```
 symfony serve
 ```
