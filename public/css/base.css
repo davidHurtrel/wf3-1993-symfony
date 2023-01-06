@@ -39,3 +39,15 @@
     }
 
 /* **************************************** FOOTER **************************************** */
+
+    footer ul {
+        padding: 0;
+    }
+
+        footer a {
+            text-decoration: none;
+        }
+
+    footer #copyright p {
+        font-size: 0.75rem;
+    }
