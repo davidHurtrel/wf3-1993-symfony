@@ -163,3 +163,20 @@ twig:
 ```PHP
 ->add('send', SubmitType::class)
 ```
+
+## MESSAGES FLASH
+
+- dans un controller (avant la redirection) :
+```PHP
+$this->addFlash('le_label', 'le_message_a_afficher');
+```
+- dans un template (à l'endroit où l'on veut afficher le message) :
+```HTML
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+```

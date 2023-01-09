@@ -37,10 +37,8 @@ class CategoryController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // slug
             $category->setSlug(strtolower($slugger->slug($category->getName())));
 
-            // img
             $infoImg = $form['img']->getData(); // récupère les données du champ img du formulaire
             if (!empty($infoImg)) { // vérifie la présence d'une image dans le formulaire
                 $extensionImg = $infoImg->guessExtension(); // récupère l'extension de fichier (le format de l'image)
@@ -53,7 +51,7 @@ class CategoryController extends AbstractController
             $manager->persist($category); // précise au gestionnaire qu'on va vouloir envoyer un objet en base de données (le rend persistant / liste d'attente)
             $manager->flush(); // envoie les objets persistés en base de donnée
 
-            // message de succès
+            $this->addFlash('success', 'La catégorie a bien été créée'); // message de succès (message flash)
 
             return $this->redirectToRoute('admin_categories');
         }
@@ -85,7 +83,7 @@ class CategoryController extends AbstractController
             $manager->persist($category);
             $manager->flush();
 
-            // message de succès
+            $this->addFlash('success', 'La catégorie a bien été modifiée');
 
             return $this->redirectToRoute('admin_categories');
         }
@@ -99,7 +97,7 @@ class CategoryController extends AbstractController
     public function delete(Category $category, ManagerRegistry $managerRegistry): Response
     {
         if (!$category->getProducts()->isEmpty()) {
-            // message d'erreur
+            $this->addFlash('danger', 'Des produits sont associés à cette catégorie. Merci de supprimer ces derniers avant de supprimer cette catégorie.');
         } else {
             $img = $this->getParameter('category_img_dir') . '/' . $category->getImg();
             if ($category->getImg() !== null && file_exists($img)) {
@@ -108,7 +106,7 @@ class CategoryController extends AbstractController
             $manager = $managerRegistry->getManager();
             $manager->remove($category);
             $manager->flush();
-            // message de succès
+            $this->addFlash('success', 'La catégorie a bien été supprimée');
         }
         return $this->redirectToRoute('admin_categories');
     }

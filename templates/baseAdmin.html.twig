@@ -66,6 +66,13 @@
                 </div>
                 <div class="col-11">
                     <div class="row p-5">
+                        {% for label, messages in app.flashes %}
+                            {% for message in messages %}
+                                <div class="flash-{{ label }} bg-{{ label }} text-light rounded mb-5 p-3">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
                         {% block body %}{% endblock %}
                     </div>
                 </div>
