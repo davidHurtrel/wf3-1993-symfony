@@ -163,12 +163,3 @@ twig:
 ```PHP
 ->add('send', SubmitType::class)
 ```
-
-
-
-
-
-## À VOIR
-
-- delete category
-- messages flash

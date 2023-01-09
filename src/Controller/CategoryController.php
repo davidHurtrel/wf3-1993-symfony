@@ -94,4 +94,22 @@ class CategoryController extends AbstractController
             'categoryForm' => $form->createView()
         ]);
     }
+
+    #[Route('/admin/category/delete/{id}', name: 'category_delete')]
+    public function delete(Category $category, ManagerRegistry $managerRegistry): Response
+    {
+        if (!$category->getProducts()->isEmpty()) {
+            // message d'erreur
+        } else {
+            $img = $this->getParameter('category_img_dir') . '/' . $category->getImg();
+            if ($category->getImg() !== null && file_exists($img)) {
+                unlink($img);
+            }
+            $manager = $managerRegistry->getManager();
+            $manager->remove($category);
+            $manager->flush();
+            // message de succès
+        }
+        return $this->redirectToRoute('admin_categories');
+    }
 }

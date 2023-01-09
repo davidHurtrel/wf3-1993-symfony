@@ -27,8 +27,8 @@
                     </td>
                     <td>{{ category.description }}</td>
                     <td>
-                        <a href="{{ path('category_update', {'id': category.id}) }}"><i class="bi bi-pencil-square text-primary"></i></a>
-                        <a href="#"><i class="bi bi-trash text-danger"></i></a>
+                        <a href="{{ path('category_update', {'id': category.id}) }}" class="me-2"><i class="bi bi-pencil-square text-primary"></i></a>
+                        <a href="{{ path('category_delete', {'id': category.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?')"><i class="bi bi-trash text-danger"></i></a>
                     </td>
                 </tr>
             {% else %}
