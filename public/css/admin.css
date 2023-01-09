@@ -13,6 +13,12 @@
             color: #212529;
         }
 
+    table img {
+        width: 50px;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+    }
+
 /* **************************************** FOOTER **************************************** */
 
     footer p {

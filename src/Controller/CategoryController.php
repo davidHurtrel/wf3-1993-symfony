@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Form\CategoryType;
+use App\Repository\CategoryRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,18 +12,20 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-class CategorieController extends AbstractController
+class CategoryController extends AbstractController
 {
     #[Route('/categories', name: 'categories')]
     public function index(): Response
     {
-        return $this->render('categorie/index.html.twig');
+        return $this->render('category/index.html.twig');
     }
 
     #[Route('/admin/categories', name: 'admin_categories')]
-    public function adminIndex(): Response
+    public function adminIndex(CategoryRepository $categoryRepository): Response
     {
-        return $this->render('categorie/adminList.html.twig');
+        return $this->render('category/adminList.html.twig', [
+            'categories' => $categoryRepository->findAll()
+        ]);
     }
 
     #[Route('/admin/category/create', name: 'category_create')]
@@ -55,7 +58,7 @@ class CategorieController extends AbstractController
             return $this->redirectToRoute('admin_categories');
         }
 
-        return $this->render('categorie/create.html.twig', [
+        return $this->render('category/create.html.twig', [
             'categoryForm' => $form->createView()
         ]);
     }

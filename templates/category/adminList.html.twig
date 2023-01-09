@@ -1,0 +1,46 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}catégories{% endblock %}
+
+{% block body %}
+    
+    <h1 class="pb-5">Liste des catégories</h1>
+
+    <table class="table table-hover table-sm text-center align-middle">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %} {# |reverse pour parcourir à l'envers #}
+                <tr>
+                    <td>{{ loop.index }}</td> {# ou revindex #}
+                    <td class="text-start">
+                        {% if category.img %}
+                            <img src="{{ asset('img/category/' ~ category.img) }}" alt="image de la catégorie {{ category.name }}" class="pe-3">
+                        {% endif %}
+                        {{ category.name }}
+                    </td>
+                    <td>{{ category.description }}</td>
+                    <td>
+                        <a href="#"><i class="bi bi-pencil-square text-primary"></i></a>
+                        <a href="#"><i class="bi bi-trash text-danger"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr class="text-center">
+                    <td colspan="4">Aucune catégorie trouvée</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-end mt-4">
+        <a href="{{ path('category_create') }}" class="btn btn-success">Ajouter une catégorie</a>
+    </div>
+
+{% endblock %}

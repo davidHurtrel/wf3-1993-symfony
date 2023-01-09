@@ -170,5 +170,7 @@ twig:
 
 ## À VOIR
 
-- bouton d'envoi du formulaire (Form ou templates)
-- traitement (Request, slug, img, envoi en bdd)
+- affichage des catégories
+- delete category
+- update category
+- messages flash
