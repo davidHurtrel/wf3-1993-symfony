@@ -7,6 +7,7 @@ twig:
         contact_city: 'Ville'
         contact_phone: '01 23 45 67 89'
         contact_email: 'contact@table-top-games.com'
+    form_themes: ['bootstrap_5_layout.html.twig']
 
 when@test:
     twig:

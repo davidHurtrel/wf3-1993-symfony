@@ -145,3 +145,17 @@ symfony console doctrine:migrations:migrate
 ```
 symfony console doctrine:query:sql "la_requete_a_executer"
 ```
+
+## FORMULAIRE
+
+- créer un formulaire :
+```
+symfony console make:form nom_de_l_entite (puis préciser le nom de l'entité associée)
+```
+- les formulaires sont générés dans le dossier src/Form
+- mise en forme des formulaires avec un thème (config/packages/twig.yaml) :
+```YAML
+twig:
+    ...
+    form_themes: ['bootstrap_5_layout.html.twig']
+```

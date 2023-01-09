@@ -1,0 +1,30 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}nouvelle catégorie{% endblock %}
+
+{% block body %}
+
+    <h1 class="mb-5">Créer une catégorie</h1>
+
+    {# {{ form(categoryForm) }} #}
+
+    {{ form_start(categoryForm) }}
+
+        <div class="row">
+            <div class="col-4 offset-2">
+                {{ form_row(categoryForm.name) }}
+            </div>
+            <div class="col-4">
+                {{ form_row(categoryForm.img) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-8 offset-2">
+                {{ form_row(categoryForm.description) }}
+            </div>
+        </div>
+
+    {{ form_end(categoryForm) }}
+
+{% endblock %}
