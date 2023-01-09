@@ -4,9 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Form\CategoryType;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class CategorieController extends AbstractController
 {
@@ -23,13 +26,34 @@ class CategorieController extends AbstractController
     }
 
     #[Route('/admin/category/create', name: 'category_create')]
-    public function create(): Response
-    {
+    public function create(Request $request, SluggerInterface $slugger, ManagerRegistry $managerRegistry): Response
+    {   
         $category = new Category(); // création d'une nouvelle catégorie
         $form = $this->createForm(CategoryType::class, $category); // création d'un formulaire avec en paramètre la nouvelle catégorie
+        $form->handleRequest($request); // gestionnaire de requêtes HTTP
 
-        // alimenter la catégorie via un formulaire
-        // envoyer en base de données
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // slug
+            $category->setSlug(strtolower($slugger->slug($category->getName())));
+
+            // img
+            $infoImg = $form['img']->getData(); // récupère les données du champ img du formulaire
+            if (!empty($infoImg)) { // vérifie la présence d'une image dans le formulaire
+                $extensionImg = $infoImg->guessExtension(); // récupère l'extension de fichier (le format de l'image)
+                $nomImg = time() . '.' . $extensionImg; // crée un nom de fichier unique à partir d'un timestamp
+                $category->setImg($nomImg); // définit le nom de l'image à mettre en base de données
+                $infoImg->move($this->getParameter('category_img_dir'), $nomImg); // télécharge le fichier dans le dossier adéquat (config/services.yaml)
+            }
+
+            $manager = $managerRegistry->getManager(); // récupère le gestionnaire
+            $manager->persist($category); // précise au gestionnaire qu'on va vouloir envoyer un objet en base de données (le rend persistant / liste d'attente)
+            $manager->flush(); // envoie les objets persistés en base de donnée
+
+            // message de succès
+
+            return $this->redirectToRoute('admin_categories');
+        }
 
         return $this->render('categorie/create.html.twig', [
             'categoryForm' => $form->createView()
