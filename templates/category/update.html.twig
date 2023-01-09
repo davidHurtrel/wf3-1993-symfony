@@ -1,12 +1,10 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}nouvelle catégorie{% endblock %}
+{% block title %}modifier une catégorie{% endblock %}
 
 {% block body %}
 
-    <h1 class="mb-5">Créer une catégorie</h1>
-
-    {# {{ form(categoryForm) }} #}
+    <h1 class="mb-5">Modifier une catégorie</h1>
 
     {{ form_start(categoryForm) }}
 
@@ -28,7 +26,7 @@
         <div class="row">
             <div class="col-8 offset-2 my-3 text-end">
                 <a href="{{ path('admin_categories') }}" class="btn btn-outline-danger me-3">Annuler</a>
-                <button class="btn btn-success">Créer</button>
+                <button class="btn btn-success">Modifier</button>
             </div>
         </div>
 

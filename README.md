@@ -170,7 +170,5 @@ twig:
 
 ## À VOIR
 
-- affichage des catégories
 - delete category
-- update category
 - messages flash

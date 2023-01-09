@@ -27,7 +27,7 @@
                     </td>
                     <td>{{ category.description }}</td>
                     <td>
-                        <a href="#"><i class="bi bi-pencil-square text-primary"></i></a>
+                        <a href="{{ path('category_update', {'id': category.id}) }}"><i class="bi bi-pencil-square text-primary"></i></a>
                         <a href="#"><i class="bi bi-trash text-danger"></i></a>
                     </td>
                 </tr>

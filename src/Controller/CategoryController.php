@@ -62,4 +62,36 @@ class CategoryController extends AbstractController
             'categoryForm' => $form->createView()
         ]);
     }
+
+    #[Route('/admin/category/update/{id}', name: 'category_update')]
+    public function update(Category $category, Request $request, ManagerRegistry $managerRegistry): Response
+    {
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $infoImg = $form['img']->getData();
+            if ($infoImg !== null) {
+                $oldImg = $this->getParameter('category_img_dir') . '/' . $category->getImg();
+                if ($category->getImg() !== null && file_exists($oldImg)) {
+                    unlink($oldImg);
+                }
+                $extensionImg = $infoImg->guessExtension();
+                $nomImg = time() . '.' . $extensionImg;
+                $category->setImg($nomImg);
+                $infoImg->move($this->getParameter('category_img_dir'), $nomImg);
+            }
+            $manager = $managerRegistry->getManager();
+            $manager->persist($category);
+            $manager->flush();
+
+            // message de succès
+
+            return $this->redirectToRoute('admin_categories');
+        }
+
+        return $this->render('category/update.html.twig', [
+            'categoryForm' => $form->createView()
+        ]);
+    }
 }
