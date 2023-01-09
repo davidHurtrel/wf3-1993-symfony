@@ -159,3 +159,16 @@ twig:
     ...
     form_themes: ['bootstrap_5_layout.html.twig']
 ```
+- bouton de soumission d'un formulaire (depuis le Form) :
+```PHP
+->add('send', SubmitType::class)
+```
+
+
+
+
+
+## À VOIR
+
+- bouton d'envoi du formulaire (Form ou templates)
+- traitement (Request, slug, img, envoi en bdd)
