@@ -180,3 +180,25 @@ $this->addFlash('le_label', 'le_message_a_afficher');
     {% endfor %}
 {% endfor %}
 ```
+
+## PAGES D'ERREUR
+
+- codes :
+    - 1xx : information
+    - 2xx : succès
+        - 200 : OK
+    - 3xx : redirection
+    - 4xx : client web
+        - 401 : accès refusé
+        - 403 : accès interdit
+        - 404 : non trouvé
+    - 5xx : serveur
+        - 500 : erreur interne
+        - 503 : service indisponible
+- si nécessaire :
+```
+composer require symfony/twig-pack
+```
+- créer l'arborescence templates/bundles/TwigBundle/Exception/
+- y créer les fichiers avec l'écriture errorXXX.html.twig (où XXX est le numéro de l'erreur)
+error.html.twig pour toutes les autres erreurs

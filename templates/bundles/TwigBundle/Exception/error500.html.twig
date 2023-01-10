@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}erreur 500{% endblock %}
+
+{% block description %}Erreur serveur{% endblock %}
+
+{% block body %}
+
+    <div class="container py-5">
+        <div class="row text-center py-5 my-5">
+            <h1>Une erreur est survenue</h1>
+            <p>Le serveur a rencontré une erreur. Merci de réessayer ultérieurement.</p>
+            <p><a href="{{ path('app_home') }}">Retourner à l'accueil</a></p>
+        </div>
+    </div>
+
+{% endblock %}

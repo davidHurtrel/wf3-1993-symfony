@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}erreur 404{% endblock %}
+
+{% block description %}Page non trouvée{% endblock %}
+
+{% block body %}
+
+    <div class="container py-5">
+        <div class="row text-center py-5 my-5">
+            <h1>Une erreur est survenue</h1>
+            <p>La page demandée n'existe pas (ou plus).</p>
+            <p><a href="{{ path('app_home') }}">Retourner à l'accueil</a></p>
+        </div>
+    </div>
+
+{% endblock %}
