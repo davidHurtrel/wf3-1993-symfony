@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carrier{% endblock %}
+
+{% block body %}
+    <h1>Carrier</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ carrier.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ carrier.name }}</td>
+            </tr>
+            <tr>
+                <th>Img</th>
+                <td>{{ carrier.img }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ carrier.price }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_carrier_index') }}">back to list</a>
+
+    <a href="{{ path('app_carrier_edit', {'id': carrier.id}) }}">edit</a>
+
+    {{ include('carrier/_delete_form.html.twig') }}
+{% endblock %}
