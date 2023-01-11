@@ -204,6 +204,24 @@ composer require symfony/twig-pack
 error.html.twig pour toutes les autres erreurs
 - les pages d'erreur ne peuvent être visualisées qu'en environnement de production (penser à vider le cache Symfony après chaque modification)
 
+## FIXTURES
+
+- installer le bundle :
+```
+composer require --dev orm-fixtures (ou composer require --dev doctrine/doctrine-fixtures-bundle)
+```
+- compléter le fichier src/DataFixtures/AppFixtures.php
+- persist() et flush()
+- envoyer en base de données (en écrasant) :
+```
+symfony console doctrine:fixtures:load
+```
+- envoyer en base de données (en ajoutant à la suite) :
+```
+symfony console doctrine:fixtures:load --append
+```
+
+
 ## COMMANDES UTILES
 
 - vider le cache (Symfony) :
