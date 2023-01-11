@@ -203,3 +203,18 @@ composer require symfony/twig-pack
 - y créer les fichiers avec l'écriture errorXXX.html.twig (où XXX est le numéro de l'erreur)
 error.html.twig pour toutes les autres erreurs
 - les pages d'erreur ne peuvent être visualisées qu'en environnement de production (penser à vider le cache Symfony après chaque modification)
+
+## COMMANDES IMPORTANTES
+
+- vider le cache (Symfony) :
+```
+symfony console cache:clear
+```
+- connaître sa version de Symfony :
+```
+symfony console --version
+```
+- mettre à jour son projet / ses dépendances :
+```
+composer update
+```
