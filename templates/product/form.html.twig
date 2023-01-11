@@ -1,0 +1,170 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}création produit{% endblock %}
+
+{% block body %}
+    
+    <h1 class="mb-5">Créer un produit</h1>
+
+    {{ form_start(productForm) }}
+
+        <div class="row">
+            <div class="col-6">
+                {# {{ form_row(productForm.name) }} #}
+                {{ form_label(productForm.name, 'Nom') }} {# label #}
+                {{ form_errors(productForm.name) }} {# messages d'erreur #}
+                {{ form_widget(productForm.name, {
+                    'attr': {
+                        'placeholder': 'Ex.: David'
+                    }
+                }) }} {# l'input #}
+                {{ form_help(productForm.name) }} {# message d'aide #}
+            </div>
+            <div class="col-3">
+                {{ form_row(productForm.quantity, {
+                    'label': 'Quantité',
+                    'attr': {
+                        'placeholder': 'Ex.: 12'
+                    }
+                }) }}
+            </div>
+            <div class="col-3">
+                {{ form_row(productForm.price, {
+                    'label': 'Prix (en €)',
+                    'attr': {
+                        'placeholder': 'Ex.: 123.45'
+                    }
+                }) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                {{ form_row(productForm.abstract, {
+                    'label': 'Résumé',
+                    'attr': {
+                        'placeholder': 'Ex.: Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita provident et quod. Vero aliquid praesentium earum eos, facilis doloremque tempora ab quidem incidunt ! Ea, dignissimos. Quas sed modi sapiente dolorem ?'
+                    }
+                }) }}
+            </div>
+            <div class="col-6">
+                {{ form_row(productForm.description, {
+                    'label': 'Description',
+                    'attr': {
+                        'placeholder': 'Ex.: Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita provident et quod. Vero aliquid praesentium earum eos, facilis doloremque tempora ab quidem incidunt ! Ea, dignissimos. Quas sed modi sapiente dolorem ?'
+                    }
+                }) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                {{ form_row(productForm.minimum_age, {
+                    'label': 'Âge minimum',
+                    'attr': {
+                        'placeholder': 'Ex.: 3'
+                    }
+                }) }}
+            </div>
+            <div class="col-3">
+                {{ form_row(productForm.min_players, {
+                    'label': 'Joueurs minimum',
+                    'attr': {
+                        'placeholder': 'Ex.: 2'
+                    }
+                }) }}
+            </div>
+            <div class="col-3">
+                {{ form_row(productForm.max_players, {
+                    'label': 'Joueurs maximum',
+                    'attr': {
+                        'placeholder': 'Ex.: 4'
+                    }
+                }) }}
+            </div>
+            <div class="col-3">
+                {{ form_row(productForm.duration, {
+                    'label': 'Durée'
+                }) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                {{ form_row(productForm.editor, {
+                    'label': 'Éditeur',
+                    'attr': {
+                        'placeholder': 'Ex.: David'
+                    }
+                }) }}
+            </div>
+            <div class="col-3">
+                {{ form_row(productForm.theme, {
+                    'label': 'Thème',
+                    'attr': {
+                        'placeholder': 'Ex.: France, guerre'
+                    }
+                }) }}
+            </div>
+            <div class="col-3">
+                {{ form_row(productForm.mecanism, {
+                    'label': 'Mécaisme(s)',
+                    'attr': {
+                        'placeholder': 'Ex.: placement, draft'
+                    }
+                }) }}
+            </div>
+            <div class="col-3">
+                {{ form_row(productForm.category, {
+                    'label': 'Catégorie',
+                    'placeholder': '-- sélectionner --'
+                }) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                {{ form_row(productForm.img1, {
+                    'label': 'Image principale (obligatoire)'
+                }) }}
+            </div>
+            <div class="col-4">
+                {{ form_row(productForm.img2, {
+                    'label': 'Image secondaire 1 (optionnel)'
+                }) }}
+            </div>
+            <div class="col-4">
+                {{ form_row(productForm.img3, {
+                    'label': 'Image secondaire 2 (optionnel)'
+                }) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                {{ form_row(productForm.alt1, {
+                    'label': 'Texte alternatif image principale'
+                }) }}
+            </div>
+            <div class="col-4">
+                {{ form_row(productForm.alt2, {
+                    'label': 'Texte alternatif image secondaire 1'
+                }) }}
+            </div>
+            <div class="col-4">
+                {{ form_row(productForm.alt3, {
+                    'label': 'Texte alternatif image secondaire 2'
+                }) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-end my-3">
+                <a href="#" class="btn btn-outline-danger me-3">Annuler</a>
+                <button class="btn btn-success">Créer</button>
+            </div>
+        </div>
+
+    {{ form_end(productForm) }}
+
+{% endblock %}

@@ -204,7 +204,7 @@ composer require symfony/twig-pack
 error.html.twig pour toutes les autres erreurs
 - les pages d'erreur ne peuvent être visualisées qu'en environnement de production (penser à vider le cache Symfony après chaque modification)
 
-## COMMANDES IMPORTANTES
+## COMMANDES UTILES
 
 - vider le cache (Symfony) :
 ```
