@@ -48,7 +48,7 @@ class ProductType extends AbstractType
                     'step' => 1
                 ]
             ])
-            ->add('price', IntegerType::class, [
+            ->add('price', NumberType::class, [
                 'attr' => [
                     'min' => 0,
                     'max' => 9999.99,
@@ -119,6 +119,7 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('alt1', TextType::class, [
+                'required' => false,
                 'attr' => [
                     'maxlength' => 45
                 ]
@@ -143,6 +144,7 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('alt2', TextType::class, [
+                'required' => false,
                 'attr' => [
                     'maxlength' => 45
                 ]
@@ -167,6 +169,7 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('alt3', TextType::class, [
+                'required' => false,
                 'attr' => [
                     'maxlength' => 45
                 ]
