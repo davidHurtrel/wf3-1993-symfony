@@ -1,0 +1,50 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}produits{% endblock %}
+
+{% block body %}
+    
+    <h1 class="pb-5">Liste des produits</h1>
+
+    <table class="table table-hover text-center align-middle">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Catégorie</th>
+                <th>Prix</th>
+                <th>Qté</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %} {# |reverse pour parcourir à l'envers #}
+                <tr>
+                    <td>{{ loop.index }}</td> {# ou revindex #}
+                    <td class="text-start">
+                        <img src="{{ asset('img/product/' ~ product.img1) }}" alt="{{ product.alt1 }}" class="pe-3">
+                        {{ product.name }}
+                    </td>
+                    <td>{{ product.description|u.truncate(75, '...', false) }}</td>
+                    <td>{{ product.category.name }}</td>
+                    <td>{{ product.price|number_format(2, ',', ' ') }} €</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>
+                        <a href="{{ path('product_update', {'id': product.id}) }}" class="me-2"><i class="bi bi-pencil-square text-primary"></i></a>
+                        <a href="{{ path('product_delete', {'id': product.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')"><i class="bi bi-trash text-danger"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr class="text-center">
+                    <td colspan="4">Aucun produit trouvée</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-end mt-4">
+        <a href="{{ path('product_create') }}" class="btn btn-success">Ajouter un produit</a>
+    </div>
+
+{% endblock %}

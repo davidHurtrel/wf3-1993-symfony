@@ -1,10 +1,18 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}création produit{% endblock %}
+{% block title %}{{ app.request.attributes.get('_route') == 'product_create' ? 'Création' : 'Modification' }} produit{% endblock %}
 
 {% block body %}
     
-    <h1 class="mb-5">Créer un produit</h1>
+    <h1 class="mb-5">
+        {# {% if app.request.attributes.get('_route') == 'product_create' %}
+            Créer
+        {% else %}
+            Modifier
+        {% endif %} 
+        un produit #}
+        {{ app.request.attributes.get('_route') == 'product_create' ? 'Créer' : 'Modifier' }} un produit
+    </h1>
 
     {{ form_start(productForm) }}
 
@@ -160,8 +168,8 @@
 
         <div class="row">
             <div class="col-12 text-end my-3">
-                <a href="#" class="btn btn-outline-danger me-3">Annuler</a>
-                <button class="btn btn-success">Créer</button>
+                <a href="{{ path('admin_products') }}" class="btn btn-outline-danger me-3">Annuler</a>
+                <button class="btn btn-success">{{ app.request.attributes.get('_route') == 'product_create' ? 'Créer' : 'Modifier' }}</button>
             </div>
         </div>
 

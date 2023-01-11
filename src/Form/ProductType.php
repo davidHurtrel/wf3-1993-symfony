@@ -79,7 +79,8 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('duration', TimeType::class, [
-                'required' => false
+                'required' => false,
+                'placeholder' => '00'
             ])
             ->add('editor', TextType::class, [
                 'required' => false,
@@ -121,7 +122,7 @@ class ProductType extends AbstractType
             ->add('alt1', TextType::class, [
                 'required' => false,
                 'attr' => [
-                    'maxlength' => 45
+                    'maxlength' => 255
                 ]
             ])
             ->add('img2', FileType::class, [
@@ -146,7 +147,7 @@ class ProductType extends AbstractType
             ->add('alt2', TextType::class, [
                 'required' => false,
                 'attr' => [
-                    'maxlength' => 45
+                    'maxlength' => 255
                 ]
             ])
             ->add('img3', FileType::class, [
@@ -171,7 +172,7 @@ class ProductType extends AbstractType
             ->add('alt3', TextType::class, [
                 'required' => false,
                 'attr' => [
-                    'maxlength' => 45
+                    'maxlength' => 255
                 ]
             ])
             ->add('category', EntityType::class, [

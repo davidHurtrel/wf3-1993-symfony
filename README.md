@@ -220,7 +220,10 @@ symfony console doctrine:fixtures:load
 ```
 symfony console doctrine:fixtures:load --append
 ```
-
+- bundle pour générer de fausses données :
+```
+composer require fakerphp/faker
+```
 
 ## COMMANDES UTILES
 
@@ -236,3 +239,14 @@ symfony console --version
 ```
 composer update
 ```
+
+
+
+
+
+## PRIORITÉS
+
+- affichage produits page d'accueil
+- formulaire de contact
+- login / register / sécurité
+- panier
