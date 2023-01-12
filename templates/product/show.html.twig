@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block description %}{{ product.abstract|u.truncate(157, '...') }}{% endblock %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+    
+    <div class="container py-5">
+
+        <div class="row my-5">
+
+            <div class="col-4 offset-1">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <img src="{{ asset('img/product/' ~ product.img1) }}" alt="{{ product.alt1 }}" class="w-100">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <img src="{{ asset('img/product/' ~ product.img1) }}" alt="{{ product.alt1 }}" class="w-100">
+                    </div>
+                    {% if product.img2 %}
+                        <div class="col-4">
+                            <img src="{{ asset('img/product/' ~ product.img2) }}" alt="{{ product.alt2 }}" class="w-100">
+                        </div>
+                    {% endif %}
+                    {% if product.img3 %}
+                        <div class="col-4">
+                            <img src="{{ asset('img/product/' ~ product.img3) }}" alt="{{ product.alt3 }}" class="w-100">
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-5 offset-1">
+                <h1 class="text-center">{{ product.name }}</h1>
+                <hr class="text-secondary my-4">
+                <p class="fs-3">
+                    {{ product.price|number_format(2, ',', ' ') }} €
+                    {% if product.quantity != 0 %}
+                        <span class="fs-4 text-success">En stock</span>
+                    {% else %}
+                        <span class="fs-4 text-danger">Rupture de stock</span>
+                    {% endif %}
+                </p>
+                <p>{{ product.abstract }}</p>
+                <p>
+                    <span class="badge bg-secondary p-2 me-2"><i class="bi bi-people me-2"></i>{{ product.minPlayers }} à {{ product.maxPlayers }} joueur(s)</span>
+                    <span class="badge bg-secondary p-2 me-2"><i class="bi bi-clock me-2"></i>{{ product.duration|date('h\\hi') }}</span>
+                    <span class="badge bg-secondary p-2"><i class="bi bi-person-vcard me-2"></i>À partir de {{ product.minimumAge }} an(s)</span>
+                </p>
+                <hr class="text-secondary my-4">
+                {% if product.editor %}
+                    <p>Éditeur : {{ product.editor }}</p>
+                {% endif %}
+                {% if product.theme %}
+                    <p>Thème : {{ product.theme }}</p>
+                {% endif %}
+                {% if product.mecanism %}
+                    <p>Mécanisme(s) : {{ product.mecanism }}</p>
+                {% endif %}
+                <hr class="text-secondary my-4">
+                <p class="text-end">
+                    <a href="#" class="btn btn-{{ product.quantity > 0 ? 'success' : 'danger disabled' }}">Ajouter au panier</a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="row my-5">
+            <div class="col-10 offset-1">
+                <h2 class="mb-3">Description</h2>
+                {{ product.description }}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -246,7 +246,6 @@ composer update
 
 ## PRIORITÉS
 
-- affichage produits page d'accueil
 - formulaire de contact
 - login / register / sécurité
 - panier

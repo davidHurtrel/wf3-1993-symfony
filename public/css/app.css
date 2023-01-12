@@ -1,0 +1,5 @@
+.card .card-img-top,
+.col-4 img {
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}

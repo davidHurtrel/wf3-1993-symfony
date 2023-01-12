@@ -26,7 +26,7 @@
                         <img src="{{ asset('img/product/' ~ product.img1) }}" alt="{{ product.alt1 }}" class="pe-3">
                         {{ product.name }}
                     </td>
-                    <td>{{ product.description|u.truncate(75, '...', false) }}</td>
+                    <td>{{ product.description|u.truncate(50, '...', false) }}</td>
                     <td>{{ product.category.name }}</td>
                     <td>{{ product.price|number_format(2, ',', ' ') }} €</td>
                     <td>{{ product.quantity }}</td>

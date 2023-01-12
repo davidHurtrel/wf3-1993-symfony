@@ -24,10 +24,20 @@ class ProductController extends AbstractController
         $this->productRepository = $productRepository;
     }
 
-    #[Route('/product', name: 'product')]
-    public function index(): Response
+    #[Route('/products', name: 'products')]
+    public function index(ProductRepository $productRepository): Response
     {
-        return $this->render('product/index.html.twig');
+        return $this->render('product/index.html.twig', [
+            'products' => $productRepository->findBy([], ['name' => 'ASC'])
+        ]);
+    }
+
+    #[Route('/product/{slug}', name: 'product_show')]
+    public function show(ProductRepository $productRepository, string $slug): Response
+    {
+        return $this->render('product/show.html.twig', [
+            'product' => $productRepository->findOneBy(['slug' => $slug])
+        ]);
     }
 
     #[Route('/admin/products', name: 'admin_products')]

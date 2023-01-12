@@ -4,6 +4,34 @@
 
 {% block body %}
 
+    <div class="container">
 
+        <div class="row my-5">
+            <div class="col-12 text-center">
+                <h1>Bienvenue chez {{ contact_company }}</h1>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-12 text-center">
+                <h2 class="mb-5">Nouveautés</h2>
+            </div>
+            {% for product in products %}
+                {# {% if loop.index < 5 %} #}
+                    <div class="col-3 p-3">
+                        <div class="card text-center">
+                            <img src="{{ asset('img/product/' ~ product.img1) }}" class="card-img-top p-3" alt="{{ product.alt1 }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text">{{ product.abstract|u.truncate(55, '...', false) }}</p>
+                                <a href="{{ path('product_show', {'slug': product.slug}) }}" class="btn btn-primary">Détails</a>
+                            </div>
+                        </div>
+                    </div>
+                {# {% endif %} #}
+            {% endfor %}
+        </div>
+
+    </div>
 
 {% endblock %}
