@@ -283,6 +283,25 @@ framework:
             recipients: ['david.hurtrel@gmail.com'] # envoie tous les mails à cette adresse
 ```
 
+## LOGIN
+
+- créer l'authentification :
+```
+symfony console make:auth
+```
+- 1
+- LoginFormAuthenticator
+- SecurityController
+- yes
+- pour se déconnecter :
+```HTML
+<a href="{{ path('app_logout') }}"></a>
+```
+
+## REGISTER
+
+
+
 
 
 
