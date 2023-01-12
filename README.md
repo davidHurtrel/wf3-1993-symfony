@@ -267,14 +267,26 @@ framework:
         routing:
             Symfony\Component\Mailer\Messenger\SendEmailMessage: sync #envoit les emails de manière synchrone
 ```
-- config/packages/web_profiler.yaml
-- config/packages/mailer.yaml
+- config/packages/web_profiler.yaml :
+```YAML
+when@dev:
+    web_profiler:
+        ...
+        intercept_redirects: true # intercepte les redirection
+```
+- config/packages/mailer.yaml :
+```YAML
+framework:
+    mailer:
+        dsn: 'null://null' # désactive l'envoi de mails
+        envelope:
+            recipients: ['david.hurtrel@gmail.com'] # envoie tous les mails à cette adresse
+```
 
 
 
 
 ## PRIORITÉS
 
-- formulaire de contact
 - login / register / sécurité
 - panier
