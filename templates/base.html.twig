@@ -45,6 +45,15 @@
         </header>
 
         <main>
+            <div class="container mt-3">
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="flash-{{ label }} bg-{{ label }} text-light rounded mb-5 p-3">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
             {% block body %}{% endblock %}
         </main>
 
