@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block description %}Formulaire de contactet coordonnées de la boutique en ligne Table Top Games{% endblock %}
+
+{% block title %}contact{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="my-5">Contact</h1>
+            </div>
+        </div>
+        
+        {{ form_start(contactForm) }}
+
+            <div class="row">
+                <div class="col-4 offset-2">
+                    {{ form_row(contactForm.first_name, {
+                        'label': 'Prénom'
+                    }) }}
+                </div>
+                <div class="col-4">
+                    {{ form_row(contactForm.last_name, {
+                        'label': 'Nom'
+                    }) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4 offset-2">
+                    {{ form_row(contactForm.company, {
+                        'label': 'Entreprise'
+                    }) }}
+                </div>
+                <div class="col-4">
+                    {{ form_row(contactForm.email, {
+                        'label': 'Email'
+                    }) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4 offset-2">
+                    {{ form_row(contactForm.subject, {
+                        'label': 'Objet'
+                    }) }}
+                </div>
+                <div class="col-4">
+                    {{ form_row(contactForm.attachment, {
+                        'label': 'Pièce-jointe'
+                    }) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-8 offset-2">
+                    {{ form_row(contactForm.message, {
+                        'label': 'Message'
+                    }) }}
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-8 offset-2 text-end">
+                    <button class="btn btn-success">Envoyer</button>
+                </div>
+            </div>
+
+        {{ form_end(contactForm) }}
+
+        <div class="row my-5">
+            <div class="col-8 offset-2 text-center">
+                <h2 class="mb-5">Coordonnées</h2>
+                <ul class="p-0">
+                    <li>{{ contact_company }}</li>
+                    <li>{{ contact_address }}</li>
+                    <li>{{ contact_zip ~ ' ' ~ contact_city }}</li>
+                    <li>{{ contact_phone }}</li>
+                    <li>{{ contact_email }}</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
