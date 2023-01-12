@@ -240,6 +240,35 @@ symfony console --version
 composer update
 ```
 
+## EMAIL
+
+- installer le mailer (si nécessaire) :
+```
+composer require symfony/mailer
+```
+- installer le package tiers (si nécessaire pour son adresse mail) :
+```
+composer require symfony/google-mailer
+```
+- dans le paramètres de compte Google => Sécurité => Connexion à Google : activer la validation en deux étapes (pour pouvoir accéder aux Mots de passe des applications)
+- créer un mot de passe d'application
+- .env.local :
+```
+MAILER_DSN=gmail://USERNAME:PASSWORD@default
+```
+- pour que les messages (emails) s'envoient directement (synchrone), config/packages/messenger.yaml :
+```YAML
+framework:
+    messenger:
+        ...
+        transports:
+            ...
+            sync: 'sync://' # décommenter pour autoriser l'envoi de messages de manière synchrone
+        routing:
+            Symfony\Component\Mailer\Messenger\SendEmailMessage: sync #envoit les emails de manière synchrone
+```
+- config/packages/web_profiler.yaml
+- config/packages/mailer.yaml
 
 
 
