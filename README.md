@@ -300,12 +300,41 @@ symfony console make:auth
 
 ## REGISTER
 
+- créer l'entité User :
+```
+symfony console make:user
+```
+- ajouter des champs à l'entité User :
+```
+symfony console make:entity User
+```
+- migration
+- créer le formualire d'inscription :
+```
+symfony console make:registration-form
+```
+- répondre aux questions
 
+
+### Si on choisit d'activer la vérification des adresses mail
+- installer le bundle de vérification d'email (si on choisit d'activer la vérification des adresses) :
+```
+composer require symfonycasts/verify-email-bundle
+```
+- modifier la dernière redirection après validation de l'adresse mail (RegistrationController::verifyUserEmail())
+- vérifier le formulaire, le controller et les templates
+- migration pour générer la propriété User->isVerified en base de données
+
+- installer le bundle de validation de mot de passe :
+```
+composer require rollerworks/password-strength-bundle
+```
 
 
 
 
 ## PRIORITÉS
 
-- login / register / sécurité
+- register => tester
+- sécurité
 - panier

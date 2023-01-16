@@ -16,31 +16,61 @@
 
         <form method="post">
 
-            <div class="row mt-5 py-5">
 
                 {{ form_start(registrationForm) }}
 
-                    <div class="col-4 offset-4 mb-3">
-                        {{ form_row(registrationForm.email) }}
-                    </div>
-
-                    <div class="col-4 offset-4 mb-3">
-                        {{ form_row(registrationForm.plainPassword, {
-                            label: 'Password'
+                <div class="row mb-3">
+                    <div class="col-3 offset-3">
+                        {{ form_row(registrationForm.firstName, {
+                            'label': 'Prénom'
                         }) }}
                     </div>
-
-                    <div class="col-4 offset-4 mb-3">
-                        {{ form_row(registrationForm.agreeTerms) }}
+                    <div class="col-3">
+                        {{ form_row(registrationForm.lastName, {
+                            'label': 'Nom'
+                        }) }}
                     </div>
+                </div>
+                    
+                <div class="row mb-3">
+                    <div class="col-3 offset-3">
+                        {{ form_row(registrationForm.email) }}
+                    </div>
+                    <div class="col-3">
+                        {{ form_row(registrationForm.phone, {
+                            'label': 'Téléphone'
+                        }) }}
+                    </div>
+                </div>
+                    
+                <div class="row mb-3">
+                    <div class="col-3 offset-3">
+                        {{ form_row(registrationForm.plainPassword.first, {
+                            label: 'Mot de passe'
+                        }) }}
+                    </div>
+                    <div class="col-3">
+                        {{ form_row(registrationForm.plainPassword.second, {
+                            label: 'Confirmation mot de passe'
+                        }) }}
+                    </div>
+                </div>
 
-                    <div class="col-4 offset-4 mb-5 text-end">
+                <div class="row mb-3">
+                    <div class="col-6 offset-3">
+                        {{ form_row(registrationForm.agreeTerms, {
+                            label: 'j\'accepte les CGU'
+                        }) }}
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-6 offset-3 mb-5 text-end">
                         <button type="submit" class="btn btn-success">Inscription</button>
                     </div>
+                </div>
 
-                {{ form_end(registrationForm) }}
-
-            </div>
+            {{ form_end(registrationForm) }}
 
         </form>
 

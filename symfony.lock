@@ -61,6 +61,9 @@
             "tests/bootstrap.php"
         ]
     },
+    "rollerworks/password-strength-bundle": {
+        "version": "v2.2.3"
+    },
     "sensio/framework-extra-bundle": {
         "version": "6.2",
         "recipe": {
@@ -308,6 +311,9 @@
         "files": [
             "config/packages/messenger.yaml"
         ]
+    },
+    "symfonycasts/verify-email-bundle": {
+        "version": "v1.13.0"
     },
     "twig/extra-bundle": {
         "version": "v3.5.0"
