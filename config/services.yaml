@@ -6,6 +6,7 @@
 parameters:
     category_img_dir: '%kernel.project_dir%/public/img/category'
     product_img_dir: '%kernel.project_dir%/public/img/product'
+    domain: '%env(DOMAIN)%'
 
 services:
     # default configuration for services in *this* file

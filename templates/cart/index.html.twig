@@ -16,7 +16,6 @@
 
         <div class="row">
             <div class="col-12">
-
                 <table class="table table-hover align-middle">
                     <thead>
                         <tr class="text-center">
@@ -32,9 +31,14 @@
                                 <td>
                                     <img src="{{ asset('img/product/' ~ element.product.img1) }}" alt="image principale {{ element.product.name }}">
                                     {{ element.product.name }}
+                                    <a href="{{ path('cart_delete', {'id': element.product.id}) }}" class="text-danger"><i class="bi bi-x-circle"></i></a>
                                 </td>
                                 <td class="text-end">{{ element.product.price|number_format(2, ',', ' ') }} €</td>
-                                <td class="text-center">{{ element.quantity }}</td>
+                                <td class="text-center">
+                                    <a href="{{ path('cart_remove', {'id': element.product.id}) }}"><i class="bi bi-dash-square text-danger"></i></a>
+                                    {{ element.quantity }}
+                                    <a href="{{ path('cart_add', {'id': element.product.id}) }}"><i class="bi bi-plus-square text-success"></i></a>
+                                </td>
                                 <td class="text-end">{{ (element.product.price * element.quantity)|number_format(2, ',', ' ') }} €</td>
                             </tr>
                         {% else %}
@@ -46,11 +50,17 @@
                     <tfoot>
                         <tr>
                             <th colspan="3" class="text-end">TOTAL :</th>
-                            <th class="text-end">€</th>
+                            <th class="text-end">{{ total|number_format(2, ',', ' ') }} €</th>
                         </tr>
                     </tfoot>
                 </table>
-                
+            </div>
+        </div>
+
+        <div class="row text-end my-5">
+            <div class="col-12">
+                <a href="{{ path('cart_clear') }}" class="btn btn-outline-danger me-3">Vider le panier</a>
+                <a href="#" class="btn btn-success">Valider le panier</a>
             </div>
         </div>
 
