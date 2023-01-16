@@ -1,0 +1,13 @@
+{% extends "baseAdmin.html.twig" %}
+
+{% block title %}créer utilisateur{% endblock %}
+
+{% block body %}
+    
+    {{ form_start(userForm) }}
+
+        <button class="btn btn-success">Créer</button>
+
+    {{ form_end(userForm) }}
+
+{% endblock %}

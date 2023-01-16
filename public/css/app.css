@@ -3,3 +3,8 @@
     aspect-ratio: 1/1;
     object-fit: contain;
 }
+
+footer .col-4 img {
+    aspect-ratio: initial;
+    object-fit: initial;
+}

@@ -18,7 +18,7 @@
                     <a class="nav-link text-light" href="{{ path('products') }}">Produits</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Contact</a>
+                    <a class="nav-link text-light" href="{{ path('contact') }}">Contact</a>
                 </li>
                 {% if app.user %}
                     <li class="nav-item">
@@ -27,6 +27,11 @@
                 {% else %}
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{{ path('app_login') }}">Connexion</a>
+                    </li>
+                {% endif %}
+                {% if app.session.get('cart') is not empty %}
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{{ path('cart') }}">Panier</a>
                     </li>
                 {% endif %}
             </ul>

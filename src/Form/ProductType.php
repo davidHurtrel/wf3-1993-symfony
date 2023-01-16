@@ -175,15 +175,18 @@ class ProductType extends AbstractType
                     'maxlength' => 255
                 ]
             ])
-            ->add('category', EntityType::class, [
-                'class' => Category::class,
-                'choice_label' => 'name',
-                // 'multiple' => true, // pour autoriser la sélection de plusieurs catégories
-                // 'expanded' => true, // affichage sous forme de boutons checkbox (ou radio si multiple à false)
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('c')
-                        ->orderBy('c.name', 'ASC');
-                } // constructeur de requête (ici pour récupérer les catégories triés par ordre alphabétique)
+            // ->add('category', EntityType::class, [
+            //     'class' => Category::class,
+            //     'choice_label' => 'name',
+            //     // 'multiple' => true, // pour autoriser la sélection de plusieurs catégories
+            //     // 'expanded' => true, // affichage sous forme de boutons checkbox (ou radio si multiple à false)
+            //     'query_builder' => function (EntityRepository $er) {
+            //         return $er->createQueryBuilder('c')
+            //             ->orderBy('c.name', 'ASC');
+            //     } // constructeur de requête (ici pour récupérer les catégories triés par ordre alphabétique)
+            // ])
+            ->add('category', CategoryType::class, [
+                'data_class' => Category::class
             ])
         ;
     }

@@ -225,21 +225,6 @@ symfony console doctrine:fixtures:load --append
 composer require fakerphp/faker
 ```
 
-## COMMANDES UTILES
-
-- vider le cache (Symfony) :
-```
-symfony console cache:clear
-```
-- connaître sa version de Symfony :
-```
-symfony console --version
-```
-- mettre à jour son projet / ses dépendances :
-```
-composer update
-```
-
 ## EMAIL
 
 - installer le mailer (si nécessaire) :
@@ -352,11 +337,23 @@ role_hierarchy:
 symfony security:check
 ```
 
+## SERVICES
 
+- services = objets qui font une tâche, des outils (réutilisables)
+- créer le dossier src/Service (s'il n'existe pas déjà)
+- y créer le fichier CartService.php
 
+## COMMANDES UTILES
 
-
-
-## PRIORITÉS
-
-- panier : delete(), getTotal()
+- vider le cache (Symfony) :
+```
+symfony console cache:clear
+```
+- connaître sa version de Symfony :
+```
+symfony console --version
+```
+- mettre à jour son projet / ses dépendances :
+```
+composer update
+```

@@ -16,7 +16,6 @@
 
         <form method="post">
 
-
                 {{ form_start(registrationForm) }}
 
                 <div class="row mb-3">
@@ -73,6 +72,13 @@
             {{ form_end(registrationForm) }}
 
         </form>
+
+        <div class="row text-center mb-5">
+            <hr class="col-6 offset-3">
+            <div class="col-12">
+                <p>Déjà inscrit ? <a href="{{ path('app_login') }}">Connectez-vous !</a></p>
+            </div>
+        </div>
 
     </div>
 

@@ -14,9 +14,9 @@
             </div>
         </div>
 
-        <form method="post">
+        <div class="row mt-5 py-5">
 
-            <div class="row mt-5 py-5">
+            <form method="post">
 
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -57,6 +57,13 @@
 
             </form>
   
+        </div>
+
+        <div class="row text-center mb-5">
+            <hr class="col-4 offset-4">
+            <div class="col-12">
+                <p>Pas encore de compte ? <a href="{{ path('app_register') }}">Créez-en-un !</a></p>
+            </div>
         </div>
 
     </div>
