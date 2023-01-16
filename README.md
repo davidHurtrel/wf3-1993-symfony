@@ -330,11 +330,32 @@ composer require symfonycasts/verify-email-bundle
 composer require rollerworks/password-strength-bundle
 ```
 
+## SÉCURITÉ - DROITS - ACCÈS - HIÉRARCHIE
+
+- dans confid/packages/security.yaml :
+```YAML
+access_control:
+    - { path: ^/admin, roles: ROLE_ADMIN }
+    ...
+role_hierarchy:
+    ROLE_ADMIN: ROLE_USER
+    ROLE_SUPER_ADMIN: ROLE_ADMIN
+```
+- afficher du code selon un rôle :
+```HTML
+{% if is_granted('LE_ROLE') %}
+    le_code_ici
+{% endif %}
+```
+- vérifier les failles de sécurité / vulnérabilités des dépendances :
+```
+symfony security:check
+```
+
+
 
 
 
 ## PRIORITÉS
 
-- register => tester
-- sécurité
 - panier
