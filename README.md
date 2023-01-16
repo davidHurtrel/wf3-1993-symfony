@@ -358,4 +358,4 @@ symfony security:check
 
 ## PRIORITÉS
 
-- panier
+- panier : remove(), delete(), clear(), getTotal()
